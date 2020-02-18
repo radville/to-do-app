@@ -1,4 +1,4 @@
-import sqlite
+import sqlite3
 
 class Schema:
     def __init__(self):
@@ -38,10 +38,11 @@ class Schema:
 
 
 class ToDoModel:
-    TABLENAME = "TODO"
+    TABLENAME = "Todo"
 
     def __init__(self):
         self.conn = sqlite3.connect('todo.db')
+        self.conn.row_factory = sqlite3.Row
 
     def __del__(self):
         # body of destructor
